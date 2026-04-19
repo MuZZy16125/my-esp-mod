@@ -1,15 +1,6 @@
-buildscript {
-    repositories {
-        maven { url = 'https://minecraftforge.net' }
-        maven { url = 'https://gradle.org' } // Запасной сервер
-        mavenCentral()
-    }
-    dependencies {
-        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.0'
-    }
+plugins {
+    id 'net.minecraftforge.gradle' version '5.1.+'
 }
-
-apply plugin: 'net.minecraftforge.gradle'
 
 group = 'com.example'
 version = '1.0'
