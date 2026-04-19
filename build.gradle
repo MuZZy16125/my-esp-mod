@@ -1,10 +1,10 @@
 buildscript {
     repositories {
         maven { url = 'https://minecraftforge.net' }
+        maven { url = 'https://gradle.org' } // Запасной сервер
         mavenCentral()
     }
     dependencies {
-        // Используем проверенную версию плагина без лишних символов
         classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.0'
     }
 }
