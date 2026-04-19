@@ -1,0 +1,23 @@
+name: Build Minecraft Mod
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Set up JDK 8
+        uses: actions/setup-java@v3
+        with:
+          java-version: '8'
+          distribution: 'temurin'
+      - name: Setup Gradle
+        uses: gradle/gradle-build-action@v2
+      - name: Build with Gradle
+        run: |
+          printf "org.gradle.jvmargs=-Xmx3G\norg.gradle.daemon=false" > gradle.properties
+          gradle build
+      - name: Upload Mod Jar
+        uses: actions/upload-artifact@v3
+        with:
+          name: MyEspMod
+          path: build/libs/*.jar
