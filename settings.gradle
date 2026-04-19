@@ -1,0 +1,8 @@
+pluginManagement {
+    repositories {
+        maven { url = 'https://minecraftforge.net' }
+        gradlePluginPortal()
+        mavenCentral()
+    }
+}
+rootProject.name = 'my-esp-mod'
