@@ -13,6 +13,7 @@ group = 'com.example'
 version = '1.0'
 archivesBaseName = 'espmod'
 
+// Это заставит Gradle использовать Java 8 для кода мода, даже если сам Gradle на Java 17
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
