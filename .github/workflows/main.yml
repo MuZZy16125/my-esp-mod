@@ -11,16 +11,8 @@ jobs:
         with:
           java-version: '8'
           distribution: 'temurin'
-          java-package: jdk
-
-      - name: Set up JDK 17 (for Gradle itself)
-        uses: actions/setup-java@v4
-        with:
-          java-version: '17'
-          distribution: 'temurin'
-
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
 
       - name: Build with Gradle
-        run: gradle build -Dorg.gradle.java.home=$JAVA_HOME_8_X64
+        run: |
+          chmod +x gradlew
+          ./gradlew build --no-daemon
