@@ -4,16 +4,16 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+'
     }
 }
+
 apply plugin: 'net.minecraftforge.gradle'
 
 group = 'com.example'
 version = '1.0'
 archivesBaseName = 'espmod'
 
-// Это заставит Gradle использовать Java 8 для кода мода, даже если сам Gradle на Java 17
 java.toolchain.languageVersion = JavaLanguageVersion.of(8)
 
 minecraft {
@@ -21,6 +21,7 @@ minecraft {
 }
 
 repositories {
+    maven { url = 'https://minecraftforge.net' }
     mavenCentral()
 }
 
