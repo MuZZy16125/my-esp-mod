@@ -7,7 +7,7 @@ pluginManagement {
 }
 
 plugins {
-    id 'net.minecraftforge.gradle' version '5.1.+'
+    id 'net.minecraftforge.gradle' version '5.1.0'
 }
 
 rootProject.name = 'my-esp-mod'
