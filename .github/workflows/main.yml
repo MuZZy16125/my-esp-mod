@@ -5,15 +5,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Set up JDK 8
+
+      - name: Set up JDK 17 for Gradle
         uses: actions/setup-java@v4
         with:
-          java-version: '8'
+          java-version: '17'
           distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
+
       - name: Build with Gradle
-        run: gradle build
-      - name: Upload Mod Jar
-        uses: actions/upload-artifact@v4
-        with:
-          name: MyEspMod
-          path: build/libs/*.jar
+        run: gradle build -Dorg.gradle.java.home=${{ env.JAVA_HOME_8_X64 }}
+        env:
+          JAVA_HOME_8_X64: /usr/lib/jvm/temurin-8-jdk-amd64
+        # Если возникнет ошибка с путем, мы попробуем другой способ в следующем шаге
