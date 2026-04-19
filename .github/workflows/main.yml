@@ -12,7 +12,18 @@ jobs:
           java-version: '8'
           distribution: 'temurin'
 
+      - name: Download Wrapper Jar
+        run: |
+          mkdir -p gradle/wrapper
+          curl -L https://github.com -o gradle/wrapper/gradle-wrapper.jar
+
       - name: Build with Gradle
         run: |
           chmod +x gradlew
           ./gradlew build --no-daemon
+          
+      - name: Upload Mod Jar
+        uses: actions/upload-artifact@v4
+        with:
+          name: MyEspMod
+          path: build/libs/*.jar
