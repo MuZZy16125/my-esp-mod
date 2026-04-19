@@ -1,12 +1,11 @@
 buildscript {
     repositories {
         maven { url = 'https://minecraftforge.net' }
-        maven { url = 'https://spongepowered.org' }
         mavenCentral()
     }
     dependencies {
-        // Мы фиксируем версию на 5.1.0, чтобы Gradle не искал бесконечно
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.0'
+        // Используем проверенную версию плагина без лишних символов
+        classpath 'net.minecraftforge.gradle:ForgeGradle:5.1.0'
     }
 }
 
