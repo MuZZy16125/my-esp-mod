@@ -15,7 +15,7 @@ jobs:
         with:
           cache-disabled: true
       - name: Build with Gradle
-        run: gradle build --no-daemon
+        run: gradle build --no-daemon -Dhttp.keepAlive=false -Dsun.net.client.defaultConnectTimeout=60000
       - name: Upload Mod Jar
         uses: actions/upload-artifact@v4
         with:
